@@ -10,24 +10,24 @@ class LoadTester(HttpUser):
 
         for i in range(amount_items):
             item = randint(0,80)
-            self.client.get("/products/" + item)
+            self.client.get(f"/products/{item}")
     
     @task(2)
     def existing_user(self):
         user = randint(0,20)
-        self.client.get("/users/" + user)
+        self.client.get(f"/users/{user}")
         self.client.get("/products")
         
         amount_cat = randint(0,3)
         for i in range(amount_cat):
             cat = randint(0,6)
-            self.client.get("/products/" + cat)
+            self.client.get(f"/categories/{cat}")
 
 
         amount_items = randint(0,15)
 
         for i in range(amount_items):
             item = randint(0,80)
-            self.client.get("/categories/" + item)
+            self.client.get(f"/products/{item}")
 
 
